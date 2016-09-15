@@ -14,11 +14,11 @@ class Signin extends Component{
       <form onSubmit={ handleSubmit(this.handleFormSubmit.bind(this)) }>
         <fieldset className="form-group">
           <label>Email:</label>
-          <input { ...email }className="form-control" />
+          <input type="email" className="form-control" placeholder="whats your email?" { ...email }/>
         </fieldset>
         <fieldset className="form-group">
           <label>Password:</label>
-          <input { ...password } className="form-control" />
+          <input type="password" className="form-control" placeholder="Enter your password" { ...password }/>
         </fieldset>
         <button action="submit" className="btn btn-primary">Sign in</button>
       </form>
@@ -26,6 +26,6 @@ class Signin extends Component{
   }
 }
 
-const formOption = { form: 'signin', fields: ['email', 'password'] };
 
-export default reduxForm( formOption, null, actions )(Signin)
+
+export default reduxForm({ form: 'signin', fields: ['email', 'password']}, null, actions )(Signin)
