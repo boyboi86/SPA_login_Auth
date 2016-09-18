@@ -17,3 +17,5 @@ Require webpack-dev-server install
 Require API endpoint API_login_auth <a href="https://github.com/boyboi86/API_login_Auth" target="_blank"> Click here </a>
 
 Alternatively you may use the heroku endpoint provided. <a href="https://ancient-chamber-86125.herokuapp.com/" target="_blank"> click here </a>
+
+The app will default to heroku server instead, to make amendment navigate to ``src/actions/index.js`` to make changes
