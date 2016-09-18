@@ -2,8 +2,10 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER, UNAUTH_USER, AUTH_ERR, FETCH_MSG } from './types';
 
-//The server we created
-const ROOT_URL = 'http://localhost:3000';
+//The server we created if you choose NOT to use the heroku API comment the below
+const ROOT_URL = 'https://ancient-chamber-86125.herokuapp.com';
+//If you use the API in your local machine uncomment the below
+// const ROOT_URL = 'http://localhost:3000';
 
 export function signinUser({ email, password }){
   return function(dispatch){
