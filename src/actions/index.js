@@ -17,9 +17,23 @@ export function signinUser({ email, password }){
         //redirect /feature
         browserHistory.push('/feature');
       })
-      .catch(function(){
+      .catch(res => {
         dispatch(authErr('Email or Password provided is invalid'))
       })
+  }
+}
+
+export function signupUser({ email, password}){
+  return function(dispatch){
+    axios.post(`${ROOT_URL}/signup`, { email, password })
+    .then( res =>{
+      dispatch({ type: AUTH_USER });
+      localStorage.setItem('token', res.data.token);
+      browserHistory.push('/feature');
+    })
+    .catch(res => {
+      dispatch(authErr('Email is in used'))
+    })
   }
 }
 
