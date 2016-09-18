@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERR } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERR, FETCH_MSG } from './types';
 
 //The server we created
 const ROOT_URL = 'http://localhost:3000';
@@ -48,5 +48,21 @@ export function signoutUser(){
   localStorage.removeItem('token');
   return {
     type: UNAUTH_USER
+  }
+}
+
+/*Token has to be included in secured routes in API*/
+export function fetchMsg() {
+  return function(dispatch){
+    axios.get(ROOT_URL, { headers: { 'authorization': localStorage.getItem('token') }})
+    .then(res => {
+      dispatch({
+        type: FETCH_MSG,
+        payload: res.data.message
+      })
+    })
+    // .catch(res => {
+    //
+    // })
   }
 }
